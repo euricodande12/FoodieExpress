@@ -28,20 +28,20 @@ const Navbar = () => {
     <nav className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
       {/* Left side */}
       <aside className="flex items-center">
-        <div className="cursor-pointer" onClick={()=> setNav(!nav)}>
+        <div className="cursor-pointer" onClick={() => setNav(!nav)}>
           <AiOutlineMenu size={30} />
         </div>
         <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
           Foodie <span className="font-bold">Express</span>
         </h1>
-        <div className="hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]">
-          <p className="bg-black text-white rounded-full p-2">Delivery</p>
+        <div className="hidden lg:flex items-center bg-gray-200 rounded-lg p-1 text-[14px]">
+          <p className="bg-black text-white rounded-lg p-2">Delivery</p>
           <p className="p-2">Pickup</p>
         </div>
       </aside>
 
       {/* Search input */}
-      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
+      <div className="bg-gray-200 rounded-lg flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
         <AiOutlineSearch size={25} />
         <input
           className="bg-transparent p-2 focus:outline-none w-full"
@@ -50,7 +50,7 @@ const Navbar = () => {
         />
       </div>
       {/* Cart button */}
-      <button className="bg-black text-white hidden md:flex items-center py-2 rounded-full">
+      <button className="bg-black text-white hidden md:flex items-center py-2 rounded-lg">
         <BsFillCartFill className="mr-2" size={20} />
         Cart
       </button>
@@ -64,7 +64,13 @@ const Navbar = () => {
       )}
 
       {/* Side drawer menu */}
-      <div className={nav ? 'fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300'}>
+      <div
+        className={
+          nav
+            ? "fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300"
+            : "fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300"
+        }
+      >
         <AiOutlineClose
           size={25}
           className="absolute right-4 top-4 cursor-pointer"
@@ -76,7 +82,11 @@ const Navbar = () => {
         <section>
           <ul className="flex flex-col p-4 text-gray-800">
             {menuItems.map((menuItem) => (
-              <NavbarItems icon={menuItem.icon} label={menuItem.label} />
+              <NavbarItems
+                key={menuItem.label}
+                icon={menuItem.icon}
+                label={menuItem.label}
+              />
             ))}
           </ul>
         </section>
